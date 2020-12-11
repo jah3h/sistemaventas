@@ -1,0 +1,36 @@
+Ver cualquier categoria
+Crear categoria
+Modificar categoria
+Eliminar categoria
+
+Ver cualquier unidad de medida
+Crear unidad de medida
+Modificar unidad de medida
+Eliminar unidad de medida
+
+Ver cualquier producto
+Crear producto
+Modificar producto
+Eliminar producto
+
+Ver cualquier rol
+Crear rol
+Modificar rol
+Eliminar rol
+
+Ver cualquier cliente
+Crear cliente
+Modificar cliente
+Eliminar cliente
+
+Ver cualquier venta
+Crear venta
+Modificar venta
+Eliminar venta
+
+Ver cualquier usuario
+Crear usuario
+Modificar usuario
+Eliminar usuario
+
+
