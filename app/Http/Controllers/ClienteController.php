@@ -16,6 +16,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Cliente::class);
         $clientes = Cliente::all();
         return view('clientes.index',compact('clientes'));
     }
@@ -27,6 +28,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Cliente::class);
         return view('clientes.create');
     }
 
@@ -38,8 +40,9 @@ class ClienteController extends Controller
      */
     public function store(StoreClienteRequest $request)
     {
+        $this->authorize('create', Cliente::class);
         Cliente::create($request->validated());
-        return Redirect::route('clientes.index');
+        return Redirect::route('clientes.index')->with('success','El cliente se ha creado correctamente.');;
     }
 
     /**
@@ -61,6 +64,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
+        $this->authorize('update', Cliente::class);
         return view('clientes.edit',compact('cliente'));
     }
 
@@ -73,8 +77,9 @@ class ClienteController extends Controller
      */
     public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
+        $this->authorize('update', Cliente::class);
         $cliente->update($request->validated());
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->with('success','El cliente se ha actualizado correctamente.');;
     }
 
     /**
@@ -85,7 +90,8 @@ class ClienteController extends Controller
      */
     public function destroy(int $id)
     {
+        $this->authorize('delete', Cliente::class);
         Cliente::where('id',$id)->delete();
-        return Redirect::route('clientes.index');
+        return Redirect::route('clientes.index')->with('success','El cliente se ha eliminado correctamente.');
     }
 }

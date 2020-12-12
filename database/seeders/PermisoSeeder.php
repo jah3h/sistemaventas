@@ -16,10 +16,10 @@ class PermisoSeeder extends Seeder
     {
         DB::table('permissions')->insert([
             // CATEGORIAS
-           /* ['name' => 'Ver cualquier categoria',   'guard_name'=>'web'],
+            ['name' => 'Ver cualquier categoria',   'guard_name'=>'web'],
             ['name' => 'Crear categoria',           'guard_name'=>'web'],
             ['name' => 'Modificar categoria',       'guard_name'=>'web'],
-            ['name' => 'Eliminar categoria',        'guard_name'=>'web'],*/
+            ['name' => 'Eliminar categoria',        'guard_name'=>'web'],
 
             // UNIDAD DE MEDIDAS
             ['name' => 'Ver cualquier unidad de medida',   'guard_name'=>'web'],

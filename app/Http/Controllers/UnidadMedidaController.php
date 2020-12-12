@@ -17,6 +17,7 @@ class UnidadMedidaController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', UnidadMedida::class);
         $unidades=UnidadMedida::all();
         
         return view('unidadmedidas.index',['unidades'=>$unidades]);
@@ -29,6 +30,7 @@ class UnidadMedidaController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', UnidadMedida::class);
         return view('unidadmedidas.create');
     }
 
@@ -40,8 +42,9 @@ class UnidadMedidaController extends Controller
      */
     public function store(StoreUnidadMedidaRequest $request)
     {
+        $this->authorize('create', UnidadMedida::class);
         UnidadMedida::create($request->validated());
-        return redirect()->route('unidadmedidas.index');
+        return redirect()->route('unidadmedidas.index')->with('success','La unidad de medida se ha creado correctamente.');
     }
 
     /**
@@ -63,6 +66,7 @@ class UnidadMedidaController extends Controller
      */
     public function edit(UnidadMedida $unidadmedida)
     {
+        $this->authorize('update', UnidadMedida::class);
         return view('unidadmedidas.edit',compact('unidadmedida'));
     }
 
@@ -75,8 +79,9 @@ class UnidadMedidaController extends Controller
      */
     public function update(UpdateUnidadMedidaRequest $request, UnidadMedida $unidadmedida)
     {
+        $this->authorize('update', UnidadMedida::class);
         $unidadmedida->update($request->validated());
-        return redirect()->route('unidadmedidas.index');
+        return redirect()->route('unidadmedidas.index')->with('success','La unidad de medida se ha actualizadp correctamente.');
     }
 
     /**
@@ -87,7 +92,14 @@ class UnidadMedidaController extends Controller
      */
     public function destroy(UnidadMedida $unidadmedida)
     {
-        $unidadmedida->delete();
-        return redirect()->route('unidadmedidas.index');
+        $this->authorize('delete', UnidadMedida::class);
+
+        if($unidadmedida->productos()->exists()){
+            return redirect()->route('unidadmedidas.index')->with('error','La unidad de medida ha sido asignada a un producto.');
+        }else{
+            $unidadmedida->delete();
+            return redirect()->route('unidadmedidas.index')->with('success','El rol se ha eliminado correctamente.');
+        }
+        
     }
 }

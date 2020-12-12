@@ -6,8 +6,10 @@ use App\Models\Cliente;
 use App\Models\Producto;
 use App\Models\Venta;
 use App\Http\Requests\StoreVentaRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class VentaController extends Controller
 {
@@ -18,8 +20,11 @@ class VentaController extends Controller
      */
     public function index()
     {
-        $ventas = Venta::all();
-        return view('ventas.index',compact('ventas'));
+        $this->authorize('viewAny', Venta::class);
+
+        $ventas = Venta::withTrashed()->get();
+
+        return view('ventas.index',['ventas'=>$ventas]);
     }
 
     /**
@@ -29,6 +34,7 @@ class VentaController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Venta::class);
         $clientes = Cliente::all();
         return view('ventas.create',compact('clientes'));
     }
@@ -41,11 +47,15 @@ class VentaController extends Controller
      */
     public function store(StoreVentaRequest $request)
     {
-        DB::transaction(function () use ($request) {
-            $venta = Venta::create($request->validated());    
+
+        $this->authorize('create', Venta::class);
+
+        $venta = new Venta();
+        DB::transaction(function () use ($request,$venta) {
+            $venta = Venta::create($request->validated());
 
             foreach ($request->ordenProductos as $producto) {
-            
+
                 $venta->productos()->attach($producto['producto_id'],
                     [
                         'subtotal' => ($producto['cantidad']*Producto::find($producto['producto_id'])->precio),
@@ -54,9 +64,7 @@ class VentaController extends Controller
             }
         });
 
-        
-
-        return Redirect::route('ventas.index');
+        return Redirect::route('ventas.show',['venta'=>$venta]);
     }
 
     /**
@@ -67,7 +75,8 @@ class VentaController extends Controller
      */
     public function show(Venta $venta)
     {
-        //
+        Log::notice($venta->usuario);
+        return view('ventas.show',['venta'=>$venta]);
     }
 
     /**
@@ -78,7 +87,7 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
-        //
+        $this->authorize('update', Venta::class);
     }
 
     /**
@@ -90,7 +99,7 @@ class VentaController extends Controller
      */
     public function update(Request $request, Venta $venta)
     {
-        //
+        $this->authorize('update', Venta::class);
     }
 
     /**
@@ -101,6 +110,11 @@ class VentaController extends Controller
      */
     public function destroy(Venta $venta)
     {
-        //
+        $this->authorize('delete', Venta::class);
+
+        $venta->delete();
+
+        return redirect()->route('ventas.index')->with('success','La venta se ha cancelado correctamente.');
     }
+
 }

@@ -33,6 +33,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', User::class);
         $usuarios = User::all();
         return view('users.index',compact('usuarios'));
     }
@@ -44,6 +45,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
         $roles=Role::all();
         return view('users.create',['roles'=>$roles]);
     }
@@ -56,8 +58,8 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
+        $this->authorize('create', User::class);
         $validated=$request->validated();
-
 
           $user = User::create([
             'name' => $validated['name'],
@@ -67,7 +69,7 @@ class UserController extends Controller
         
             $user->assignRole($validated['role']);
 
-         return  redirect()->route('users.index');
+         return  redirect()->route('users.index')->with('success','El usuario se ha creado correctamente.');;
     }
 
     /**
@@ -89,6 +91,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('update', User::class);
         $roles=Role::all();
         return view('users.edit',['user'=>$user,'roles'=>$roles]);
     }
@@ -102,6 +105,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
+        $this->authorize('update', User::class);
         $validated=$request->validated();
 
         $user ->update([
@@ -111,7 +115,7 @@ class UserController extends Controller
         
         $user->syncRoles([$validated['role']]);
 
-        return  redirect()->route('users.index')->with('success','El usuario se ha actualizado correctamente.');;
+        return  redirect()->route('users.index')->with('success','El usuario se ha actualizado correctamente.');
     }
 
     /**
@@ -122,7 +126,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $this->authorize('delete', User::class);
+        $user->delete();
+        return redirect()->route('users.index')->with('success','El usuario se ha eliminado correctamente.');
     }
 
      /**
@@ -133,6 +139,7 @@ class UserController extends Controller
      */
     public function showUpdatePasswordForm(User $user)
     {
+        $this->authorize('update', User::class);
         return view('users.update-password',['user'=>$user]);
     }
 
@@ -145,6 +152,8 @@ class UserController extends Controller
      */
     public function updatePassword(UpdateUserPasswordRequest $request, User $user)
     {
+        $this->authorize('update', User::class);
+
         $validated=$request->validated();
 
         $user->update([

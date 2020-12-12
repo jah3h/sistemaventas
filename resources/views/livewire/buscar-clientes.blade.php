@@ -1,7 +1,8 @@
 <div class="card-body">
     <div class="d-flex">
-        <a href="{{route('clientes.create')}}" class="btn btn-primary">Nuevo Cliente</a>
-
+        @can('Crear cliente')
+            <a href="{{route('clientes.create')}}" class="btn btn-primary">Nuevo Cliente</a>
+        @endcan
         <input wire:model="search" type="text" placeholder="Buscar clientes..." class="form-control ml-auto col-5" />
     </div>
 
@@ -30,20 +31,23 @@
                 <td class="">{{$cliente->email}}</td>
                 <td class="">
                     <div class="d-inline-flex">
+                        @can('Modificar cliente')
+                            <a href="{{route('clientes.edit',$cliente)}}">
+                                <x-feathericon-edit class="text-secondary" />
+                            </a>
+                        @endcan
                         
-                        <a href="{{route('clientes.edit',$cliente)}}">
-                            <x-feathericon-edit class="text-secondary" />
-                        </a>
+                        @can('Eliminar cliente')
+                            <form method="POST" action="{{route('clientes.destroy',$cliente->id)}}">
+                                @csrf
+                                @method('DELETE')
 
-                        <form method="POST" action="{{route('clientes.destroy',$cliente->id)}}">
-                            @csrf
-                            @method('DELETE')
-
-                            <button type="submit" onclick="return confirm('Desea Eliminar el cliente?')"
-                                class="btn btn-link p-0 ml-3 m-0 d-inline-flex">
-                                <x-feathericon-trash-2 class="text-danger" />
-                            </button>
-                        </form>
+                                <button type="submit" onclick="return confirm('¿Desea Eliminar al cliente?')"
+                                    class="btn btn-link p-0 ml-3 m-0 d-inline-flex">
+                                    <x-feathericon-trash-2 class="text-danger" />
+                                </button>
+                            </form>
+                        @endcan
                     </div>
                 </td>
 

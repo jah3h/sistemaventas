@@ -15,8 +15,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Categoria::class);
         $categorias=Categoria::paginate(10);
-        
 
         return view('categorias.index',['categorias'=>$categorias]);
     }
@@ -50,7 +50,7 @@ class CategoriaController extends Controller
             Categoria::create($validated);
         }
 
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index')->with('success','La categoria se ha creado correctamente.');;
     }
 
     /**
@@ -72,6 +72,7 @@ class CategoriaController extends Controller
      */
     public function edit(Categoria $categoria)
     {
+        $this->authorize('update', Categoria::class);
         return view('categorias.edit',compact('categoria'));
     }
 
@@ -84,8 +85,9 @@ class CategoriaController extends Controller
      */
     public function update(UpdateCategoriaRequest $request, Categoria $categoria)
     {
+        $this->authorize('update', Categoria::class);
         $categoria->update($request->validated());
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index')->with('success','La categoria se ha actualizado correctamente.');;;
     }
 
     /**
@@ -96,7 +98,14 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-        $categoria->delete();
-        return redirect()->route('categorias.index');
+        $this->authorize('delete', Categoria::class);
+        
+        if($categoria->productos()->exists()){
+            return redirect()->route('categorias.index')->with('error','La categoria ha sido asignada a un producto.');
+        }else{
+            $categoria->delete();
+            return redirect()->route('categorias.index')->with('success','La categoria se ha eliminado correctamente.');
+        }
+        
     }
 }

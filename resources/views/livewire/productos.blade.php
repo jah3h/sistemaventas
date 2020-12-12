@@ -11,7 +11,7 @@
             <div class="col-md-3">
                 <input id="codigo_comprobante" type="text"
                     class="form-control @error('codigo_comprobante') is-invalid @enderror" readonly
-                    value="VNT-XXXXXXXXXX name="codigo_comprobante" required autofocus>
+                    value="VNT-XXXXXXXXXX" name="codigo_comprobante" required autofocus>
 
                 @error('codigo_comprobante')
                 <span class="invalid-feedback" role="alert">

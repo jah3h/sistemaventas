@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
@@ -35,7 +34,5 @@ Route::resource('roles',\App\Http\Controllers\RoleController::class)->middleware
 Route::get('/user/{user}/reset', [App\Http\Controllers\UserController::class, 'showUpdatePasswordForm'])->name('users.reset');
 Route::post('/user/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('users.password');
 /* */
-
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');

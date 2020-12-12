@@ -18,7 +18,9 @@ class CategoriaPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if ($user->can('Ver cualquier categoria')) {
+            return true;
+        }
     }
 
     /**
@@ -55,7 +57,9 @@ class CategoriaPolicy
      */
     public function update(User $user, Categoria $categoria)
     {
-        //
+        if ($user->can('Modificar categoria')) {
+            return true;
+        }
     }
 
     /**
@@ -67,7 +71,9 @@ class CategoriaPolicy
      */
     public function delete(User $user, Categoria $categoria)
     {
-        //
+        if ($user->can('Eliminar categoria')) {
+            return true;
+        }
     }
 
     /**

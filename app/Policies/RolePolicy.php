@@ -2,11 +2,10 @@
 
 namespace App\Policies;
 
-use App\Models\UnidadMedida;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UnidadMedidaPolicy
+class RolePolicy
 {
     use HandlesAuthorization;
 
@@ -18,7 +17,7 @@ class UnidadMedidaPolicy
      */
     public function viewAny(User $user)
     {
-        if ($user->can('Ver cualquier unidad de medida')) {
+        if ($user->can('Ver cualquier rol')) {
             return true;
         }
     }
@@ -27,10 +26,9 @@ class UnidadMedidaPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UnidadMedida  $unidadMedida
      * @return mixed
      */
-    public function view(User $user, UnidadMedida $unidadMedida)
+    public function view(User $user)
     {
         
     }
@@ -43,7 +41,7 @@ class UnidadMedidaPolicy
      */
     public function create(User $user)
     {
-        if ($user->can('Crear unidad de medida')) {
+        if ($user->can('Crear rol')) {
             return true;
         }
     }
@@ -52,12 +50,11 @@ class UnidadMedidaPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UnidadMedida  $unidadMedida
      * @return mixed
      */
-    public function update(User $user, UnidadMedida $unidadMedida)
+    public function update(User $user)
     {
-        if ($user->can('Modificar unidad de medida')) {
+        if ($user->can('Modificar rol')) {
             return true;
         }
     }
@@ -66,12 +63,11 @@ class UnidadMedidaPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UnidadMedida  $unidadMedida
      * @return mixed
      */
-    public function delete(User $user, UnidadMedida $unidadMedida)
+    public function delete(User $user)
     {
-        if ($user->can('Eliminar unidad de medida')) {
+        if ($user->can('Eliminar rol')) {
             return true;
         }
     }
@@ -80,23 +76,21 @@ class UnidadMedidaPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UnidadMedida  $unidadMedida
      * @return mixed
      */
-    public function restore(User $user, UnidadMedida $unidadMedida)
+    public function restore(User $user)
     {
-        //
+        
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UnidadMedida  $unidadMedida
      * @return mixed
      */
-    public function forceDelete(User $user, UnidadMedida $unidadMedida)
+    public function forceDelete(User $user)
     {
-        //
+        
     }
 }

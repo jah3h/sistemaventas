@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Producto extends Model
 {
     use HasFactory,SoftDeletes;
@@ -23,6 +24,6 @@ class Producto extends Model
     }
 
     public function ventas(){
-        return $this->belongsToMany(Venta::class)->withTrashed();
+        return $this->belongsToMany(Venta::class)->withTrashed()->withPivot('cantidad', 'subtotal');
     }
 }

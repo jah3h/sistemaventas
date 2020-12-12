@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1343095-177f-48ce-b4b0-332e17c8e97e" name="Default Changelist" comment="" />
+    <list default="true" id="c1343095-177f-48ce-b4b0-332e17c8e97e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sistemaventas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sistemaventas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UnidadMedidaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UnidadMedidaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VentaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VentaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/BuscarProductos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/BuscarProductos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/BuscarVentas.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/BuscarVentas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Productos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Productos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Categoria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/UnidadMedida.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UnidadMedida.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Venta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/CategoriaPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CategoriaPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/ClientePolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ClientePolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/ProductoPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ProductoPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/UnidadMedidaPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/UnidadMedidaPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/VentaPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/VentaPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermisoSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermisoSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/lista.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/lista.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorias/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navItem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navItem.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/buscar-categorias.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/buscar-categorias.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/buscar-clientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/buscar-clientes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/buscar-medidas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/buscar-medidas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/buscar-productos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/buscar-productos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/buscar-roles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/buscar-roles.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/buscar-usuarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/buscar-usuarios.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/buscar-ventas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/buscar-ventas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/productos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/productos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/roles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/unidadmedidas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/unidadmedidas/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ventas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ventas/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +76,9 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -127,9 +194,15 @@
       <path value="$PROJECT_DIR$/vendor/brunocfalcao/blade-feather-icons" />
       <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
     </include_path>
   </component>
   <component name="ProjectId" id="1l7E0tix2D8PlC3NusQM9nvgXvm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -176,11 +249,23 @@
       <workItem from="1607186648939" duration="1125000" />
       <workItem from="1607499258131" duration="365000" />
       <workItem from="1607540837491" duration="3196000" />
+      <workItem from="1607789596031" duration="2132000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="697" y="25" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607182877701">
@@ -203,18 +288,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607184031172" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607540937526">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607789646933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607540937526" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607789646933" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Models/Venta.php</url>
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/VentaController.php</url>
           <line>4</line>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

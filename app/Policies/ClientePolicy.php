@@ -18,7 +18,9 @@ class ClientePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if ($user->can('Ver cualquier cliente')) {
+            return true;
+        }
     }
 
     /**
@@ -41,7 +43,9 @@ class ClientePolicy
      */
     public function create(User $user)
     {
-        //
+        if ($user->can('Crear cliente')) {
+            return true;
+        }
     }
 
     /**
@@ -53,7 +57,9 @@ class ClientePolicy
      */
     public function update(User $user, Cliente $cliente)
     {
-        //
+        if ($user->can('Modificar cliente')) {
+            return true;
+        }
     }
 
     /**
@@ -65,7 +71,9 @@ class ClientePolicy
      */
     public function delete(User $user, Cliente $cliente)
     {
-        //
+        if ($user->can('Eliminar cliente')) {
+            return true;
+        }
     }
 
     /**
@@ -77,7 +85,7 @@ class ClientePolicy
      */
     public function restore(User $user, Cliente $cliente)
     {
-        //
+        
     }
 
     /**
@@ -89,6 +97,6 @@ class ClientePolicy
      */
     public function forceDelete(User $user, Cliente $cliente)
     {
-        //
+        
     }
 }

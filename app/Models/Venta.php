@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Venta extends Model
 {
     use HasFactory, SoftDeletes;
+
+
 
     protected $fillable =
     [
@@ -26,17 +30,19 @@ class Venta extends Model
     }
 
     public function usuario(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id','id');
     }
 
     public function productos(){
-        return $this->belongsToMany(Producto::class)->withTrashed();
+        return $this->belongsToMany(Producto::class)->withTrashed()->withPivot('cantidad', 'subtotal');
     }
 
     public function generarCodigo(){
 
         $formato = "VNT-%010d";
 
-        return sprintf($formato, $this->count()+1);
+        return sprintf($formato, $this->withTrashed()->get()->count()+1);
     }
+
+
 }

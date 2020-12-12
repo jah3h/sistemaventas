@@ -1,4 +1,4 @@
-Ver cualquier categoria
+Ver cualquier categoria 
 Crear categoria
 Modificar categoria
 Eliminar categoria
@@ -32,5 +32,24 @@ Ver cualquier usuario
 Crear usuario
 Modificar usuario
 Eliminar usuario
+
+
+
+
+**datos 
+colchon -> unidades
+cojin -> cebra lila
+                unidad de medida -densidad ,pulgada
+espuma -> blanca , lila, cebra -> unidad
+tapzi -> 
+tecnopor -> unidad
+malla arpillera -> rollo (2m,4m,6m) o centrimetro
+malla rechel ->% de tupido 75 80 85 90 95   -> unidad y cm
+
+hilos -> unidad ,metro
+
+piso para auto-> metro.
+
+
 
 

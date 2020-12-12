@@ -5,7 +5,7 @@
 
     <div class="row justify-content-center ">
         <div class="col-md-12">
-
+            @include('layouts.alerts')
             <div class="card">
                 <div class="card-header">
 

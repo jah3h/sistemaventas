@@ -1,7 +1,11 @@
 <div class="card-body">
 
     <div class="d-flex">
-        <a href="{{route('categorias.create')}}" class="btn btn-primary mr-3">Nueva Categoria</a>
+        
+        @can('Crear categoria', Model::class)
+            <a href="{{route('categorias.create')}}" class="btn btn-primary mr-3">Nueva Categoria</a>    
+        @endcan
+        
 
         <input wire:model="search" type="text" placeholder="Buscar categorias..." class="form-control ml-auto col-5" />
     </div>
@@ -22,10 +26,15 @@
                 <td class="col-2">{{$loop->iteration}}</td>
                 <td class="col-8">{{$categoria->nombre}}</td>
                 <td class="col-2 d-inline-flex  ">
-                    
+
+                    @can('Modificar categoria')
                         <a class="pr-3" href="{{route('categorias.edit',$categoria)}}">
                             <x-feathericon-edit class="text-secondary" />
                         </a>
+                    @endcan
+
+
+                    @can('Eliminar categoria')
                         <form method="POST" action="{{route('categorias.destroy',$categoria)}}">
                             @method('DELETE')
                             @csrf
@@ -34,9 +43,7 @@
                                 <x-feathericon-trash-2 class="text-danger" />
                             </button>
                         </form>
-
-                    
-
+                    @endcan
 
                 </td>
 
@@ -52,6 +59,6 @@
         </tbody>
     </table>
 
-            {{$categorias->links()}}
-    
+    {{$categorias->links()}}
+
 </div>

@@ -18,7 +18,9 @@ class ProductoPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if ($user->can('Ver cualquier producto')) {
+            return true;
+        }
     }
 
     /**
@@ -30,7 +32,7 @@ class ProductoPolicy
      */
     public function view(User $user, Producto $producto)
     {
-        //
+        
     }
 
     /**
@@ -41,7 +43,9 @@ class ProductoPolicy
      */
     public function create(User $user)
     {
-        //
+        if ($user->can('Crear producto')) {
+            return true;
+        }
     }
 
     /**
@@ -53,7 +57,9 @@ class ProductoPolicy
      */
     public function update(User $user, Producto $producto)
     {
-        //
+        if ($user->can('Modificar producto')) {
+            return true;
+        }
     }
 
     /**
@@ -65,7 +71,9 @@ class ProductoPolicy
      */
     public function delete(User $user, Producto $producto)
     {
-        //
+        if ($user->can('Eliminar producto')) {
+            return true;
+        }
     }
 
     /**

@@ -19,6 +19,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Producto::class);
         $productos=Producto::all();
         return view('productos.index',['productos'=>$productos]);
     }
@@ -30,8 +31,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
-        $unidadMedidas = UnidadMedida::all();
+        $this->authorize('create', Producto::class);
+        $categorias = Categoria::orderBy('nombre')->get();
+        $unidadMedidas = UnidadMedida::orderBy('codigo')->get();
 
         return view('productos.create',['categorias'=>$categorias,'unidadMedidas'=>$unidadMedidas]);
     }
@@ -44,7 +46,8 @@ class ProductoController extends Controller
      */
     public function store(StoreProductoRequest $request)
     {
-        $validated = $request->validated();
+        $this->authorize('create', Producto::class);
+        
 
        /* $product = new Producto();
         $product->nombre=$validated['nombre'];
@@ -55,7 +58,7 @@ class ProductoController extends Controller
         $product->save();*/
 
         Producto::create($request->validated());
-        return redirect()->route('productos.index');
+        return redirect()->route('productos.index')->with('success','El producto se ha creado correctamente.');
     }
 
     /**
@@ -77,6 +80,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
+        $this->authorize('update', Producto::class);
         $categorias = Categoria::all();
         $unidadMedidas = UnidadMedida::all();
         return view('productos.edit',['producto'=>$producto,'categorias'=>$categorias,'unidadMedidas'=>$unidadMedidas]);
@@ -91,8 +95,9 @@ class ProductoController extends Controller
      */
     public function update(UpdateProductoRequest $request, Producto $producto)
     {
+        $this->authorize('update', Producto::class);
         $producto->update($request->validated());
-        return redirect()->route('productos.index');
+        return redirect()->route('productos.index')->with('success','El producto se ha actualizado correctamente.');
     }
 
     /**
@@ -103,7 +108,8 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
+        $this->authorize('delete', Producto::class);
         $producto->delete();
-        return redirect()->route('productos.index');
+        return redirect()->route('productos.index')->with('success','El producto se ha eliminado correctamente.');
     }
 }

@@ -18,7 +18,9 @@ class VentaPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if ($user->can('Ver cualquier venta')) {
+            return true;
+        }
     }
 
     /**
@@ -41,7 +43,9 @@ class VentaPolicy
      */
     public function create(User $user)
     {
-        //
+        if ($user->can('Crear venta')) {
+            return true;
+        }
     }
 
     /**
@@ -53,7 +57,9 @@ class VentaPolicy
      */
     public function update(User $user, Venta $venta)
     {
-        //
+        if ($user->can('Modificar venta')) {
+            return true;
+        }
     }
 
     /**
@@ -65,7 +71,9 @@ class VentaPolicy
      */
     public function delete(User $user, Venta $venta)
     {
-        //
+        if ($user->can('Eliminar venta')) {
+            return true;
+        }
     }
 
     /**

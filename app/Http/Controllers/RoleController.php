@@ -18,6 +18,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Role::class);
         $roles= Role::with('permissions')->get();
         
         return view('roles.index',compact('roles'));
@@ -30,6 +31,8 @@ class RoleController extends Controller
      */
     public function create()
     {
+        
+        $this->authorize('create');
         return view('roles.create');
     }
 
@@ -41,10 +44,11 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
+        $this->authorize('create');
         $validated=$request->validated();
         $role = Role::create($request->validated());
         $role->syncPermissions($validated['permisos']);
-        return view('roles.index');
+        return view('roles.index')->with('success','El rol se ha creado correctamente.');;
     }
 
     /**
@@ -66,7 +70,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        
+        $this->authorize('update');
         $lstPermisos = array();
 
         foreach($role->permissions as $p){
@@ -85,10 +89,11 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
+        $this->authorize('update');
         $validated=$request->validated();
         $role->update($validated);
         $role->syncPermissions($validated['permisos']);
-        return view('roles.index');
+        return view('roles.index')->with('success','El rol se ha actualizado correctamente.');;
     }
 
     /**
@@ -99,6 +104,12 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $this->authorize('delete');
+        if($role->users()->exists()){
+            return redirect()->route('roles.index')->with('error','El rol tiene una relación dependiente.');
+        }else{
+        $role->delete();
+            return redirect()->route('roles.index')->with('success','El rol se ha eliminado correctamente.');
+        }
     }
 }

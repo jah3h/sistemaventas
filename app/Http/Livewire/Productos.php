@@ -113,11 +113,11 @@ class Productos extends Component
         $subtotal = $this->subTotal;
         $imp = $this->impuesto;
         $total = $this->total;
-        
+        $venta = new Venta();
 
-        DB::transaction(function () use ($validated,$total,$subtotal,$imp) {
+        DB::transaction(function () use ($validated,$total,$subtotal,$imp,$venta) {
 
-            $venta = new Venta();
+            
 
             $venta->codigo_comprobante=$venta->generarCodigo();
             $venta->fecha_venta=Carbon::now()->toDateString();
@@ -130,11 +130,7 @@ class Productos extends Component
 
             $venta->save();
 
-            //dd($validated['ordenProductos']);
-
             $i = 0;
-
-
             foreach ($validated['ordenProductos'] as $producto) {
                  ++$i;
                 $venta->productos()->attach($producto['producto_id'],
@@ -143,12 +139,8 @@ class Productos extends Component
                         'cantidad' => ($producto['cantidad'])
                     ]);
             }
-
-            Log::emergency($i);
         });
 
-        
-
-        return Redirect::route('ventas.index');
+        return Redirect::route('ventas.show',['venta'=>$venta]);
     }
 }
