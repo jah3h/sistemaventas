@@ -35,7 +35,7 @@
                 </td>
                
                 <td>
-                    {!! $venta->deleted_at==null?'<p class="text-success">Completado</p>':'<p class="text-danger">Cancelado</p>' !!}
+                    {!! $venta->deleted_at==null?'<p class="text-success">Completado</p>':'<p class="text-danger">Cancelado</p>'!!}
                 </td>
                 <td>
                     <div class="d-inline-flex">

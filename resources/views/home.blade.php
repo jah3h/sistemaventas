@@ -13,7 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                        ya entdendi lo que se tiene que hacer
+                        por eso desde maña na
+                        voy a 
+                        crear
+                        algo que nadie conoce
+                        
                     {{ __('You are logged in!') }}
                 </div>
             </div>
